@@ -25,7 +25,15 @@ namespace KpdApps.Orationi.Messaging.Sdk.Attributes
         /// <returns></returns>
         public string GetXsd(Assembly assembly)
         {
-            using (var resourceStream = assembly.GetManifestResourceStream(Uri))
+            var resourceStream = assembly.GetManifestResourceStream(Uri);
+            if (resourceStream is null)
+            {
+                // Такое случается в случае:
+                // 1. когда в ресурсах текущей сборки нет искомого контракта, т.е. он вместе с базовым классом находится в другой сборке
+                // 2. указан некорректный Uri
+                return null;
+            }
+
             using (var streamReader = new StreamReader(resourceStream, Encoding.UTF8))
             {
                 return streamReader.ReadToEnd();
