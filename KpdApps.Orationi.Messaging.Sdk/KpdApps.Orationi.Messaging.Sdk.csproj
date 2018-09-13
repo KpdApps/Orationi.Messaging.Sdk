@@ -52,6 +52,7 @@
     <Compile Include="Attributes\ResponseContractInAttribute.cs" />
     <Compile Include="Attributes\ResponseContractOutAttribute.cs" />
     <Compile Include="Cache\ICacheProvider.cs" />
+    <Compile Include="ContractInspector\ContractInspectorProxyObj.cs" />
     <Compile Include="IPipelineExecutionContext.cs" />
     <Compile Include="Plugins\BasePipelinePlugin.cs" />
     <Compile Include="Plugins\IPipelinePlugin.cs" />
