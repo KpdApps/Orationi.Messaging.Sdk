@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{523EE427-C005-4846-AC19-58BDD5FDD26B}</ProjectGuid>
+    <ProjectGuid>{48D1DED4-86CC-4ED5-A767-4D0597E1E4F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KpdApps.Orationi.Messaging.Sdk</RootNamespace>
-    <AssemblyName>KpdApps.Orationi.Messaging.Sdk</AssemblyName>
+    <RootNamespace>Orationi.Messaging.Sdk.Endpoints</RootNamespace>
+    <AssemblyName>Orationi.Messaging.Sdk.Endpoints</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,15 +30,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,22 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ContractAttribute.cs" />
-    <Compile Include="Attributes\RequestContractOutAttribute.cs" />
-    <Compile Include="Attributes\RequestContractInAttribute.cs" />
-    <Compile Include="Attributes\ResponseContractInAttribute.cs" />
-    <Compile Include="Attributes\ResponseContractOutAttribute.cs" />
-    <Compile Include="Cache\ICacheProvider.cs" />
-    <Compile Include="Updates\IUpdateProvider.cs" />
-    <Compile Include="IPipelineExecutionContext.cs" />
-    <Compile Include="Plugins\BasePipelinePlugin.cs" />
-    <Compile Include="Plugins\IPipelinePlugin.cs" />
+    <Compile Include="IMessagingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XsdValidator.cs" />
+    <Compile Include="RabbitClient.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="appveyor.yml" />
-    <None Include="Key.snk" />
+    <ProjectReference Include="..\KpdApps.Orationi.Messaging.Sdk.Core\KpdApps.Orationi.Messaging.Sdk.Core.csproj">
+      <Project>{e3566b24-b77b-4789-bfb3-8f03c5ce3476}</Project>
+      <Name>KpdApps.Orationi.Messaging.Sdk.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

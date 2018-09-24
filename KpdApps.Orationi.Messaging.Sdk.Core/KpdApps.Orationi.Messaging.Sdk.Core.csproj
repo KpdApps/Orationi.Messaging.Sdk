@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{523EE427-C005-4846-AC19-58BDD5FDD26B}</ProjectGuid>
+    <ProjectGuid>{E3566B24-B77B-4789-BFB3-8F03C5CE3476}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KpdApps.Orationi.Messaging.Sdk</RootNamespace>
-    <AssemblyName>KpdApps.Orationi.Messaging.Sdk</AssemblyName>
+    <RootNamespace>KpdApps.Orationi.Messaging.Sdk.Core</RootNamespace>
+    <AssemblyName>KpdApps.Orationi.Messaging.Sdk.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,15 +30,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,22 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ContractAttribute.cs" />
-    <Compile Include="Attributes\RequestContractOutAttribute.cs" />
-    <Compile Include="Attributes\RequestContractInAttribute.cs" />
-    <Compile Include="Attributes\ResponseContractInAttribute.cs" />
-    <Compile Include="Attributes\ResponseContractOutAttribute.cs" />
-    <Compile Include="Cache\ICacheProvider.cs" />
-    <Compile Include="Updates\IUpdateProvider.cs" />
-    <Compile Include="IPipelineExecutionContext.cs" />
-    <Compile Include="Plugins\BasePipelinePlugin.cs" />
-    <Compile Include="Plugins\IPipelinePlugin.cs" />
+    <Compile Include="Models\RabbitRequest.cs" />
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\ResponseBase.cs" />
+    <Compile Include="Models\ResponseId.cs" />
+    <Compile Include="Models\ResponseStatus.cs" />
+    <Compile Include="Models\ResponseXsd.cs" />
+    <Compile Include="Models\UploadFileRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XsdValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="appveyor.yml" />
-    <None Include="Key.snk" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
