@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Xml.Linq;
+using Newtonsoft.Json;
 
-namespace KpdApps.Orationi.Messaging.Common.Models
+namespace KpdApps.Orationi.Messaging.Sdk.Core.Models
 {
     public class UploadFileRequest
     {

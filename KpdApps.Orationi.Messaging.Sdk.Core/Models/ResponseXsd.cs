@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace KpdApps.Orationi.Messaging.Common.Models
+namespace KpdApps.Orationi.Messaging.Sdk.Core.Models
 {
     [DataContract]
     public class ResponseXsd : ResponseBase

@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Text;
-using KpdApps.Orationi.Messaging.Common.Models;
 using KpdApps.Orationi.Messaging.Sdk.Core.Configurations.RabbitMQ;
+using KpdApps.Orationi.Messaging.Sdk.Core.Models;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 
-namespace KpdApps.Orationi.Messaging.Core
+namespace Orationi.Messaging.Sdk.Endpoints
 {
     public class RabbitClient : IDisposable
     {

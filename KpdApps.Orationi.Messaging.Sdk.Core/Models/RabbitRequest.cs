@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KpdApps.Orationi.Messaging.Common.Models
+namespace KpdApps.Orationi.Messaging.Sdk.Core.Models
 {
     public class RabbitRequest
     {

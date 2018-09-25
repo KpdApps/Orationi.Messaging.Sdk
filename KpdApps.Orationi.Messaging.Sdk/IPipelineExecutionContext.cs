@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using KpdApps.Orationi.Messaging.Sdk.Cache;
+using KpdApps.Orationi.Messaging.Sdk.Core.Models;
 
 namespace KpdApps.Orationi.Messaging.Sdk
 {
@@ -32,5 +33,6 @@ namespace KpdApps.Orationi.Messaging.Sdk
 
         ICacheProvider CacheProvider { get; }
 
+        CallbackSettings TryGetCallbackSettings(Guid messageId, out int? requestCode);
     }
 }
