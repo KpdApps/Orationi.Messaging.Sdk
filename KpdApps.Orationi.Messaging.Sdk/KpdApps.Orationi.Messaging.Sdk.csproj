@@ -57,10 +57,17 @@
     <Compile Include="Plugins\BasePipelinePlugin.cs" />
     <Compile Include="Plugins\IPipelinePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workflow\IWorkflowExecutionContext.cs" />
     <Compile Include="XsdValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KpdApps.Orationi.Messaging.Sdk.Core\KpdApps.Orationi.Messaging.Sdk.Core.csproj">
+      <Project>{E3566B24-B77B-4789-BFB3-8F03C5CE3476}</Project>
+      <Name>KpdApps.Orationi.Messaging.Sdk.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
