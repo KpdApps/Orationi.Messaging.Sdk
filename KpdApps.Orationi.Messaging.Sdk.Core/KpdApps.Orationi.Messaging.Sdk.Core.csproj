@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallbackMethodType.cs" />
     <Compile Include="Configurations\RabbitMQ\RabbitMQConfigurationSection.cs" />
+    <Compile Include="Models\CallbackSettings.cs" />
     <Compile Include="Models\RabbitRequest.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Response.cs" />
